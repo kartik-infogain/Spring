@@ -7,8 +7,7 @@ public class BaseballCoach implements Coach {
 	public String getDailyWorkout() {
 		return "Spend 30 minutes in batting";
 	}
-	//Hello
-	//ss
+	
 	@Override
 	public String getDailyFortune() {
 		return fortuneService.getFortune();
