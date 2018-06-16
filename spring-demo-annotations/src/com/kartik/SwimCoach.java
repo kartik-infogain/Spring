@@ -1,6 +1,20 @@
 package com.kartik;
 
+import org.springframework.beans.factory.annotation.Value;
+
 public class SwimCoach implements Coach {
+	@Value("${email}")
+	private String email;
+	@Value("${team}")
+	private String team;
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getTeam() {
+		return team;
+	}
 
 	public SwimCoach(FortuneService fortuneService) {
 		super();

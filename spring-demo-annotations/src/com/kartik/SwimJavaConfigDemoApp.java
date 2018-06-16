@@ -8,10 +8,12 @@ public class SwimJavaConfigDemoApp {
 		// Read Spring config file
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SportsConfig.class);
 		// Get the bean
-		Coach coach = context.getBean("swimCoach", Coach.class);
+		SwimCoach coach = context.getBean("swimCoach", SwimCoach.class);
 		// Methods of Bean
 		System.out.println(coach.getDailyWorkout());
 		System.out.println(coach.getDailyFortune());
+		System.out.println("Email : " + coach.getEmail());
+		System.out.println("Team : " + coach.getTeam());
 		// Close the context
 		context.close();
 
