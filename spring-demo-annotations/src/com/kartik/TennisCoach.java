@@ -20,7 +20,6 @@ public class TennisCoach implements Coach {
 	public TennisCoach() {
 		super();
 	}
-	
 
 	public FortuneService getFortuneService() {
 		return fortuneService;
