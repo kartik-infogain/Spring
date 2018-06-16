@@ -8,15 +8,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class TennisCoach implements Coach {
 
-	// @Autowired Here also 
+	// @Autowired Here also
 	private FortuneService fortuneService;
 
-	//@Autowired // Here too
+	// Constructor Injection
+	// @Autowired // Here too
 	public TennisCoach(FortuneService fortuneService) {
 		super();
 		this.fortuneService = fortuneService;
 	}
-	
+
 	public TennisCoach() {
 		super();
 	}
@@ -24,8 +25,17 @@ public class TennisCoach implements Coach {
 	public FortuneService getFortuneService() {
 		return fortuneService;
 	}
-	@Autowired
+
+	// Setter injection
+	// @Autowired
 	public void setFortuneService(FortuneService fortuneService) {
+		this.fortuneService = fortuneService;
+	}
+
+	// Method Injection
+	@Autowired
+	public void doStuff(FortuneService fortuneService) {
+		System.out.println(">> Inside doStuff()");
 		this.fortuneService = fortuneService;
 	}
 
