@@ -1,6 +1,7 @@
 package com.kartik;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 //@Component("tennisCoach") when the Bean ID is custom
@@ -8,7 +9,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class TennisCoach implements Coach {
 
-	// @Autowired Here also
+	@Autowired
+	@Qualifier("randomFortuneService")
 	private FortuneService fortuneService;
 
 	// Constructor Injection
@@ -33,11 +35,11 @@ public class TennisCoach implements Coach {
 	}
 
 	// Method Injection
-	@Autowired
+	/*@Autowired
 	public void doStuff(FortuneService fortuneService) {
 		System.out.println(">> Inside doStuff()");
 		this.fortuneService = fortuneService;
-	}
+	}*/
 
 	@Override
 	public String getDailyWorkout() {
