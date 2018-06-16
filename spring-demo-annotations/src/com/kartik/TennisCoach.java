@@ -2,11 +2,13 @@ package com.kartik;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 //@Component("tennisCoach") when the Bean ID is custom
 
 @Component
+@Scope("prototype")
 public class TennisCoach implements Coach {
 
 	@Autowired
