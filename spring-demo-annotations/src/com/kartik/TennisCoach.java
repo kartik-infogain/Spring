@@ -11,9 +11,22 @@ public class TennisCoach implements Coach {
 	// @Autowired Here also 
 	private FortuneService fortuneService;
 
-	@Autowired // Here too
+	//@Autowired // Here too
 	public TennisCoach(FortuneService fortuneService) {
 		super();
+		this.fortuneService = fortuneService;
+	}
+	
+	public TennisCoach() {
+		super();
+	}
+	
+
+	public FortuneService getFortuneService() {
+		return fortuneService;
+	}
+	@Autowired
+	public void setFortuneService(FortuneService fortuneService) {
 		this.fortuneService = fortuneService;
 	}
 
