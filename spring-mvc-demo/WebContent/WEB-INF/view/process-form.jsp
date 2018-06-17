@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Hello, World!</h1>
-	<p>Main Menu JSP <a href="showForm">Click here</a></p>
+	<h1>Hello, World!!</h1>
+	<h3>Hi, ${param.studentName}</h3>
 </body>
 </html>

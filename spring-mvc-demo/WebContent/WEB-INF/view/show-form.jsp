@@ -7,7 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Hello, World!</h1>
-	<p>Main Menu JSP <a href="showForm">Click here</a></p>
+	<form action="processForm" method="get">
+		<input type="text" placeholder="Enter your name" name="studentName">
+		<input type="submit">
+	</form>
 </body>
 </html>
