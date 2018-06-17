@@ -7,9 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="processFormVersion2" method="get">
-		<input type="text" placeholder="Enter your name" name="studentName">
-		<input type="submit">
-	</form>
+	<h1>Message : ${message}</h1>
 </body>
 </html>
