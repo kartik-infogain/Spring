@@ -8,5 +8,7 @@
 </head>
 <body>
 	<h1>Welcome! ${student.firstName}</h1>
+	<h3>Country : ${student.country}</h3>
+	<h3>Favourite Language : ${student.favouriteLanguage}</h3>
 </body>
 </html>
