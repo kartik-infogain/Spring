@@ -21,10 +21,10 @@
 		<br>
 		<br>
 		Favourite Language : <br>
-		Java <form:radiobutton path="favouriteLanguage" value="Java"/>
-		C# <form:radiobutton path="favouriteLanguage" value="C#"/>
-		PHP <form:radiobutton path="favouriteLanguage" value="PHP"/>
-		C++ <form:radiobutton path="favouriteLanguage" value="C++"/>
+		Java <form:radiobutton path="favouriteLanguage" value="Java" />
+		C# <form:radiobutton path="favouriteLanguage" value="C#" />
+		PHP <form:radiobutton path="favouriteLanguage" value="PHP" />
+		C++ <form:radiobutton path="favouriteLanguage" value="C++" />
 		<input type="submit" value="submit" />
 	</form:form>
 </body>
