@@ -1,5 +1,8 @@
 package com.auction.utility.email;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Properties;
 
 import javax.mail.Authenticator;
@@ -12,32 +15,57 @@ import javax.mail.internet.MimeMessage;
 
 public class SendEmail {
 
-	public void sendEmail(String to, String _id) {
-		String from = "docsaver0@gmail.com";
+	private String from;
+	private String host;
+	private String starttlsEnable;
+	private String hostName;
+	private String port;
+	private String smtpAuth;
+	private String password;
+
+	public void sendEmail(String to, String messageSent) {
+		getForgetPasswordDetails();
 		Properties props = new Properties();
-		props.put("mail.smtp.host", "true");
-		props.put("mail.smtp.starttls.enable", "true");
-		props.put("mail.smtp.host", "smtp.gmail.com");
-		props.put("mail.smtp.port", "587");
-		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.host", host);
+		props.put("mail.smtp.starttls.enable", starttlsEnable);
+		props.put("mail.smtp.host", hostName);
+		props.put("mail.smtp.port", port);
+		props.put("mail.smtp.auth", smtpAuth);
 
 		Session session = Session.getInstance(props, new Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(from, "DocumentSaver");
+				return new PasswordAuthentication(from, password);
 			}
 		});
 
 		try {
 			MimeMessage message = new MimeMessage(session);
-			message.setFrom(new InternetAddress("abc"));
 			message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 			message.setSubject("Password change");
-			message.setText("Your ID is " + _id
-					+ ". Please don't share it with anyone. Visit http://localhost:8082/AuctionPOC/changePassword to change the password");
+			message.setText(messageSent);
 
 			Transport.send(message);
 			// System.out.println("Message Sent");
 		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	protected void getForgetPasswordDetails() {
+		Properties properties = new Properties();
+		try {
+			File f = new File("C:\\Users\\Kartik\\Desktop\\login.properties");
+			properties.load(new FileReader(f));
+			from = properties.getProperty("from");
+			System.out.print(from);
+			host = properties.getProperty("host");
+			starttlsEnable = properties.getProperty("starttlsEnable");
+			hostName = properties.getProperty("hostName");
+			port = properties.getProperty("port");
+			smtpAuth = properties.getProperty("smtpAuth");
+			password = properties.getProperty("password");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

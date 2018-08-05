@@ -7,7 +7,7 @@ public interface MongoFunctions {
 
 	public String getObjectID(String username, String emailAddress);
 
-	public boolean doUserExists(String username);
+	public boolean doUserExists(String username); 
 
 	public boolean addUser(String name, String username, String emailAddress, long phonenumber, String password);
 }

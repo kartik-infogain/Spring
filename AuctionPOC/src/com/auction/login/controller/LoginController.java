@@ -20,7 +20,7 @@ public class LoginController {
 	@RequestMapping("/")
 	public String startApp() {
 		return "index";
-	}
+	} 
 
 	@RequestMapping("/homePage")
 	public String homePage(HttpServletRequest request, Model model) {
@@ -33,6 +33,8 @@ public class LoginController {
 			return "index";
 		} else if (mongoFunctions.validateUser(username, password)) {
 			model.addAttribute("message", "Welcome " + username + "!");
+			
+			model.addAttribute("username", username);
 			System.out.println(model.toString());
 			return "home-page";
 		} else {
@@ -50,7 +52,8 @@ public class LoginController {
 		String _id = mongoFunctions.getObjectID(username, to);
 		SendEmail sendEmail = new SendEmail();
 		if (_id != null) {
-			sendEmail.sendEmail(to, _id);
+			sendEmail.sendEmail(to, "Your ID is " + _id
+					+ ". Please don't share it with anyone. Visit http://localhost:8082/AuctionPOC/changePassword to change the password");
 			model.addAttribute("message", "<span style='color: yellow'>Email has been sent</span>");
 			return "index";
 		} else {
@@ -108,8 +111,13 @@ public class LoginController {
 			return "register";
 		} else if (mongoFunctions.addUser(name, username, emailAddress, phonenumber, password)) {
 			model.addAttribute("message", "Welcome " + name + "!");
+			model.addAttribute("username", username);
 			return "home-page";
 		}
 		return "register";
+	}
+	@RequestMapping("/auctionPage/addItem")
+	public String addItem() {
+		return "add-item";
 	}
 }
