@@ -1,0 +1,24 @@
+package com.kartik;
+
+import java.util.Random;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class RandomFortuneService implements FortuneService {
+	
+	private String[] data = {
+			"Beware of Monkeys",
+			"Make your peers happy",
+			"Be hard working"
+	};
+	
+	private Random myRandom = new Random();
+
+	@Override
+	public String getFortune() {
+		int index = myRandom.nextInt(data.length);
+		return data[index];
+	}
+
+}
