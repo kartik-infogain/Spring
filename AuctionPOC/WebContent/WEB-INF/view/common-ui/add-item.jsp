@@ -57,7 +57,7 @@
 				<h1>Add Product</h1>
 				<div class="codrops-top">
 					<a class="codrops-icon codrops-icon-prev" href="auctionPage">
-						<span>Previous Demo</span>
+						<span>Previous Page</span>
 					</a>
 					
 					<a class="codrops-icon codrops-icon-info" href="#">
@@ -65,17 +65,22 @@
 					</a>
 				</div>
 			</div>
-			<form id="myform" class="fs-form fs-form-full" autocomplete="off" action="formPage" method="post">
+			<form id="myform" class="fs-form fs-form-full" autocomplete="off" action="form" method="post">
+				
 				<ol class="fs-fields">
 					<li>
 						<label class="fs-field-label fs-anim-upper" for="q1">What's the name of the product?</label>
-						<input class="fs-anim-lower" id="q1" name="q1" type="text" placeholder="Anything" required/>
+						<input class="fs-anim-lower" id="q1" name="productName" type="text" placeholder="Anything" required/>
+						<input type="hidden" class="fs-anim-lower" name="username" id ="username" value="<%= session.getAttribute("username")%>">
 					</li>
 					<li>
-						<label class="fs-field-label fs-anim-upper" for="q2" data-info="We won't send you spam, we promise...">Any Tags?</label>
-						<input class="fs-anim-lower" id="q2" name="q2" type="text" placeholder="To make your product trendy..." required/>
+						<label class="fs-field-label fs-anim-upper" for="q2" data-info="Please use spaces to separate">Any Tags?</label>
+						<input class="fs-anim-lower" id="q2" name="tags" type="text" placeholder="To make your product trendy..." required/>
 					</li>
-					
+					<li>
+						<label class="fs-field-label fs-anim-upper" for="q5">What's your budget?</label>
+						<input class="fs-mark fs-anim-lower" id="q5" name="price" type="number" placeholder="1000" />
+					</li>
 					<li>
 						<label class="fs-field-label fs-anim-upper" for="q3">Can you add a photo too?</label>
 						<!-- <div class=""><img src="" alt="Click to get an image" id="img-prod"></div>
@@ -85,7 +90,7 @@
 								<img alt="" id="b" style="height: 200px; width: 200px;" class="fs-anim-lower">
 							</div>
 							<div id="infoi">
-								<input class="fs-anim-lower" type="file" id="files" name="q3" multiple />
+								<input class="fs-anim-lower" type="file" id="files" name="fileName" />
 							</div>
 							<input type="hidden" class="fs-anim-lower" name="image" id ="image" >
 							<!-- <output id="list"></output> -->
@@ -94,7 +99,7 @@
 					<!-- Photo of the product... -->
 					<li>
 						<label class="fs-field-label fs-anim-upper" for="q4">Just a description left..</label>
-						<textarea class="fs-anim-lower" id="q4" name="q4" placeholder="Describe here" required></textarea>
+						<textarea class="fs-anim-lower" id="q4" name="desc" placeholder="Describe here" required></textarea>
 					</li>
 					<!-- <li>
 						<label class="fs-field-label fs-anim-upper" for="q5">What's your budget?</label>
